@@ -2,12 +2,19 @@
 
 #include "palindrome.h"
 
+//variable to store the result of palindrome()
+char* palresult;
+
 void is_palindrome(char* str) {
-  ASSERT_STREQ(palindrome(str), "Yes");
+  palresult = palindrome(str);
+  ASSERT_STREQ(palresult, "Yes");
+  free(palresult);
 }
 
 void not_palindrome(char* str) {
-  ASSERT_STREQ(palindrome(str), "No");
+  palresult = palindrome(str);	
+  ASSERT_STREQ(palresult, "No");
+  free(palresult);
 }
 
 TEST(Palindrome, HandlesEmptyString) {
