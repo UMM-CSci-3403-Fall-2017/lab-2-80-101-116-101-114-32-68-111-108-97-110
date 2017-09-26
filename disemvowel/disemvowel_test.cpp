@@ -2,6 +2,8 @@
 
 #include "disemvowel.h"
 
+//added variable "result" to each of the functions in order to easily free them after use. Done in order to prevent memory leaks.
+
 TEST(Disemvowel, HandleEmptyString) {
   char* result = disemvowel((char*) "");
   ASSERT_STREQ("", result);
