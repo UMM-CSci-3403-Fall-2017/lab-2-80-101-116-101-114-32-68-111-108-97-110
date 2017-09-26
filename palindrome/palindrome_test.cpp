@@ -2,7 +2,7 @@
 
 #include "palindrome.h"
 
-//variable to store the result of palindrome()
+//variable to store the result of palindrome() to be freed at a later date
 char* palresult;
 
 void is_palindrome(char* str) {

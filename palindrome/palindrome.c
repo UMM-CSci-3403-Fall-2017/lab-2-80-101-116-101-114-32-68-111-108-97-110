@@ -4,6 +4,7 @@
 
 #include "palindrome.h"
 
+//Takes in a string, and returns the string in reverse order
 char* str_reverse(char* str) {
   int len, i;
   char* result;
@@ -45,7 +46,8 @@ char* palindrome(char* str) {
     answer[1] = 'o';
     answer[2] = '\0';
   }
-
+  
+  //Frees the memory allocated to hold the reversed string
   free(rev);
 
   return answer;
