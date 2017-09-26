@@ -2,45 +2,47 @@
 
 #include "disemvowel.h"
 
-bool islowercasevowel (char str) {
+int islowercasevowel (char str) {
         if ((str == 'a' || str == 'e' || str == 'i' || str == 'o' || str == 'u') == 1){
-                return true;
+                return 1;
                 }
-        return false;
+        return 0;
 }
 
-bool isuppercasevowel (char str) {
+int isuppercasevowel (char str) {
         if ((str == 'A' || str == 'E' || str == 'I' || str == 'O' || str == 'U') == 1){
-                return true;
+                return 1;
                 }
-        return false;
+        return 0;
 }
 
 char* disemvowel(char* str) {
   if (str[0] == '\0'){
-	  return NULL;
+	  return str;
   }
   
-  int vowelcounter;
+  int vowelcounter = 0;
   int i = 0;
   while (str[i] != '\0')
   {
-	if (isuppercasevowel(str[i]) || islowercasevowel(str[i]))
+	if (isuppercasevowel(str[i]) == 1 || islowercasevowel(str[i]) == 1)
 	{
 		vowelcounter++;
 	}
 	i++;
   }
-  char* disemvoweled;
-  disemvoweled = (char*) calloc (i - vowelcounter + 1, sizeof(char));
+  char* disemvoweled = (char*) calloc (i - vowelcounter + 1, sizeof(char));
   
   i = 0;
+  int dvCounter = 0;
   while (str[i] != '\0') {
-	  if (!isuppercasevowel(str[i]) && !islowercasevowel(str[i])) {
-		disemvoweled += str[i];
+	  if (isuppercasevowel(str[i]) == 0 && islowercasevowel(str[i]) == 0) {
+		disemvoweled[dvCounter] = str[i];
+		dvCounter++;
 	  }
 	  i++;
   }
-  disemvoweled += '\0';
+
+  disemvoweled[dvCounter] = '\0';
   return disemvoweled;
 }
